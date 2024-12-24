@@ -1,1 +1,6 @@
-# JCT-FSWD-Project2
+Project 2 for JCT course of Full Stack Web Development.
+
+Collaborators:
+
+- Lior Tordjman
+- Refael
