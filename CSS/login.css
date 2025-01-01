@@ -1,0 +1,155 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/login-background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login Container */
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 2em;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Logo */
+.logo {
+    max-width: 150px;
+    margin-bottom: 1em;
+}
+
+/* Title */
+.login-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+/* Description */
+.login-container p {
+    font-size: 1em;
+    margin-bottom: 1.5em;
+    font-weight: 500;
+}
+
+/* Input Fields */
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 0.8em 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+}
+
+input[type="email"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #6C63FF;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+label {
+    display: block;
+    font-size: 0.9em;
+    color: #ffffff;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+/* Button */
+button {
+    background-color: #6C63FF;
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #4A42CC;
+}
+
+/* Options */
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.options a {
+    color: #6C63FF;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s ease-in-out;
+}
+
+.options a:hover {
+    color: #4A42CC;
+}
+
+/* Error Messages */
+.error-message {
+    color: #FF0000;
+    font-size: 0.9em;
+    margin-top: 1em;
+    display: none; /* Initially hidden */
+}
+
+/* Redirect Link */
+.redirect {
+    margin-top: 1.5em;
+    font-size: 0.9em;
+}
+
+.redirect a {
+    color: #6C63FF;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.redirect a:hover {
+    color: #4A42CC;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 1.5em;
+    }
+
+    .login-container h1 {
+        font-size: 1.5em;
+    }
+
+    input[type="email"], input[type="password"] {
+        font-size: 0.9em;
+    }
+
+    button {
+        font-size: 0.9em;
+    }
+}
