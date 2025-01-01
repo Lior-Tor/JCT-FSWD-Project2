@@ -1,5 +1,5 @@
-// Dummy user data for authentication
-const dummyUsers = [
+// Random user data for authentication
+const randomUsers = [
     { email: "test@example.com", password: "Password123" },
     { email: "user@games4u.com", password: "Games4U2023" }
 ];
@@ -53,5 +53,5 @@ loginForm.addEventListener("submit", function (e) {
     // Successful login
     localStorage.setItem("loginAttempts", 0); // Reset attempts
     document.cookie = "session=active; max-age=3600; path=/"; // Simulate session cookie
-    window.location.href = "main-page.html"; // Redirect
+    window.location.href = "../HTML/main-page.html"; // Redirect
 });
