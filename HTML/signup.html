@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games4U</title>
-    <link rel="stylesheet" href="index.css">
 
-</head>
-<body>
-<header>
-    <nav>
-        <div>Games4U</div>
-        <ul>
-            <li><a href="index.html">Login</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-        </ul>
-    </nav>
-</header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Games4U - Signup</title>
+        <link rel="stylesheet" href="../CSS/signup.css">
+        <link rel="icon" href="../images/favicon.png" type="image/png">
+    </head>
 
-<main>
-    <h1>put signup js here</h1>
-</main>
+    <body>
+        <div class="signup-container">
+            <div class="signup-form">
+                <img src="../images/logo-without-background.png" alt="Games4U Logo" class="logo">
+                <h1>Create Your Account</h1>
+                <p>Join Games4U and start your journey!</p>
 
-<footer>
-    <p>&copy; 2024 Games4U</p>
-</footer>
-</body>
+                <form id="signupForm">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                        <span class="toggle-password" id="togglePassword">👁️</span>
+                    </div>
+
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+                    <label for="birthdate">Birthdate</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">terms and conditions</a>.</label>
+                    </div>
+
+                    <button type="submit" id="signupButton">Sign Up</button>
+                    <p class="error-message" id="errorMessage"></p>
+                    <p class="success-message" id="successMessage"></p>
+                </form>
+
+                <p class="redirect">Already have an account? <a href="../../login.html">Login here</a></p>
+            </div>
+        </div>
+
+        <script src="../JS/signup.js"></script>
+    </body>
+
 </html>
