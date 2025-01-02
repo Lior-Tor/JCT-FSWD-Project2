@@ -4,24 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games4U</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../CSS/main-page.css">
 
 </head>
 <body>
 <header>
     <nav>
         <div>Games4U</div>
-        <ul>
-            <li><a href="index.html">Login</a></li>
-            <li><a href="signup.html">Sign Up</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="achievements.html">Achievements</a></li>
-        </ul>
+
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+            <a href="game1.html">Game 1</a>
+            <a href="game2.html">Game 2</a>
     </nav>
 </header>
 
 <main>
-    <h1>put achievements js here</h1>
+    <body>
+    <div class="landing-container">
+        <h1>Welcome to the Game Hub!</h1>
+        <p>Choose your adventure below and explore your achievements.</p>
+
+        <div class="games-container">
+            <div class="game-card" onclick="location.href='game1.html'">
+                <img src="../images/game1-thumbnail.jpg" alt="Game 1">
+                <h3>Game 1</h3>
+                <p>An exciting puzzle adventure awaits!</p>
+            </div>
+            <div class="game-card" onclick="location.href='game2.html'">
+                <img src="../images/game2-thumbnail.jpg" alt="Game 2">
+                <h3>Game 2</h3>
+                <p>Embark on an action-packed journey!</p>
+            </div>
+        </div>
+
+        <div class="achievements">
+            <h2>Your Achievements</h2>
+            <ul>
+                <li>🏆 Completed Level 1 in Game 1</li>
+                <li>✨ Earned 500 points in Game 2</li>
+                <li>🎯 Unlocked the "Sharpshooter" badge</li>
+                <li>📅 Logged in for 7 consecutive days</li>
+            </ul>
+        </div>
+    </div>
+    </body>
+
 </main>
 
 <footer>

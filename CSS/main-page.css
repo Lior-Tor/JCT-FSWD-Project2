@@ -1,0 +1,155 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('../images/login-background-banner.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ nav {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     background: linear-gradient(45deg, rgba(108, 99, 255, 0.9), rgba(59, 130, 246, 0.9));
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+     z-index: 1;
+     display: flex;
+     justify-content: space-between;
+     align-items: stretch;
+     padding: 1em 2em;
+     transition: transform 0.3s ease, opacity 0.3s ease;
+ }
+
+nav.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Makes items wrap on smaller screens */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    max-height: 118px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 0 1em;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #FFD700;
+}
+
+nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes navSlideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav {
+    animation: navSlideIn 0.8s ease-out;
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    nav a {
+        margin: 0.5em 0;
+    }
+}
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+    padding-top: 5em; /* Adjusted for nav bar */
+}
+
+.games-container {
+    display: flex;
+    justify-content: flex-start; /* Push boxes to one side */
+    gap: 2em;
+    margin: 2em 0;
+    flex-wrap: wrap;
+}
+
+.game-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #6C63FF, #3B82F6) 1;
+    border-radius: 12px;
+    padding: 1.5em;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+.achievements {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #6C63FF, #3B82F6) 1;
+    border-radius: 12px;
+    padding: 1em;
+    width: 80%;
+    max-width: 600px;
+}
+
+.achievements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.achievements li {
+    font-size: 0.9em;
+    margin: 0.5em 0;
+}
+
+.achievements h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
