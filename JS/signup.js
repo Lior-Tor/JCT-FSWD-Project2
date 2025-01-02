@@ -1,6 +1,9 @@
 // Retrieve existing users from localStorage
 const newUsers = JSON.parse(localStorage.getItem("users")) || [];
 
+// Delete all the users from localStorage
+//localStorage.removeItem("users");
+
 // Elements
 const signupForm = document.getElementById("signupForm");
 const nameInput = document.getElementById("name");
