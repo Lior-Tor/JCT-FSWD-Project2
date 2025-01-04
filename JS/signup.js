@@ -21,7 +21,6 @@ togglePassword.addEventListener("click", () => {
     passwordInput.type = type;
     confirmPasswordInput.type = type;
     togglePassword.textContent = type === "password" ? "👁️" : "👨‍🦯";
-    //I put a blind man emoji since there isn't any closed eye emoji.
 });
 
 // Event Listener for Signup
@@ -48,7 +47,7 @@ signupForm.addEventListener("submit", function (e) {
     // Check if email is already registered
     if (newUsers.some(user => user.email === email)) {
         errorMessage.style.display = "block";
-        errorMessage.innerHTML = `Email is already registered. <a href='../HTML/login.html'>Login here</a>.`;
+        errorMessage.innerHTML = `Email is already registered. <a href='../login.html'>Login here</a>.`;
         return;
     }
 
@@ -78,6 +77,6 @@ signupForm.addEventListener("submit", function (e) {
 
     // Redirect to login page after 2 seconds
     setTimeout(() => {
-        window.location.href = "../html/login.html";
+        window.location.href = "../login.html";
     }, 3000);
 });
