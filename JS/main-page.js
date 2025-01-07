@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const userEmail=localStorage.getItem('loggedInUser');
+    const userEmail = localStorage.getItem("loggedInUser");
     const username = userEmail.split('@')[0];
     // Retrieve high scores for different users
     let highScores = JSON.parse(localStorage.getItem("highScores")) || {};
     const highScoreGame1 = highScores[userEmail] || 0;
-    const highScoreGame2 = 4500; // Replace with dynamic score fetching
+    let wordHighScores = JSON.parse(localStorage.getItem("wordHighScores")) || {};
+    const highScoreGame2 = wordHighScores[userEmail] || 0;
 
     document.getElementById('username').textContent = username;
     document.getElementById('highScoreGame1').textContent = highScoreGame1;
