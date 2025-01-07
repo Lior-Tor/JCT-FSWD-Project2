@@ -31,7 +31,14 @@ signupForm.addEventListener("submit", function (e) {
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const confirmPassword = confirmPasswordInput.value.trim();
-    const birthdate = birthdateInput.value;
+    const birthdate = new Date(birthdateInput.value); // Parse birthdate
+    const today = new Date(); // Get today's date
+
+    // Calculate age
+    const age = today.getFullYear() - birthdate.getFullYear();
+    const isBeforeBirthdayThisYear = today.getMonth() < birthdate.getMonth() ||
+        (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate());
+    const actualAge = isBeforeBirthdayThisYear ? age - 1 : age;
 
     // Clear previous messages
     errorMessage.style.display = "none";
@@ -41,6 +48,13 @@ signupForm.addEventListener("submit", function (e) {
     if (!name || !email || !password || !confirmPassword || !birthdate) {
         errorMessage.style.display = "block";
         errorMessage.textContent = "All fields are required.";
+        return;
+    }
+
+    // Validate age
+    if (actualAge < 13) {
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "You must be at least 13 years old to sign up.";
         return;
     }
 

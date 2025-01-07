@@ -21,6 +21,7 @@ body {
 
 /* Terms Container */
 .terms-container {
+    position: relative; /* For positioning the back button inside */
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 12px;
     padding: 2em;
@@ -43,6 +44,40 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Back Button */
+.back-button {
+    position: absolute; /* Position it inside the terms container */
+    top: 10px;
+    left: 10px;
+}
+
+.back-button a {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #6C63FF;
+    transition: color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.back-button a:hover {
+    color: #4A42CC;
+    transform: scale(1.1);
+}
+
+/* Back Icon */
+.back-icon {
+    font-size: 1.2em; /* Larger arrow icon */
+    margin-right: 5px; /* Spacing between the icon and text */
+    color: #6C63FF;
+    transition: transform 0.3s ease-in-out;
+}
+
+.back-button a:hover .back-icon {
+    transform: translateX(-3px); /* Move the arrow slightly on hover */
 }
 
 /* Header */
@@ -82,6 +117,7 @@ header p {
 .terms-content {
     text-align: left;
     line-height: 1.6;
+    margin-top: 20px; /* Space below header */
 }
 
 .terms-content h2 {
@@ -109,28 +145,6 @@ header p {
     padding: 0.8rem;
     border-left: 5px solid #4A42CC;
     border-radius: 5px;
-}
-
-/* Back Button */
-.back-button {
-    text-align: center;
-    margin-top: 2em;
-}
-
-.back-button a {
-    display: inline-block;
-    background-color: #6C63FF;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
-}
-
-.back-button a:hover {
-    background-color: #4A42CC;
-    transform: scale(1.05);
 }
 
 /* Footer */
@@ -163,6 +177,5 @@ footer {
 
     .back-button a {
         font-size: 0.9em;
-        padding: 8px 15px;
     }
 }
