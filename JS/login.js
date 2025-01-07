@@ -70,6 +70,7 @@ loginForm.addEventListener("submit", function (e) {
     // Successful login
     loginAttempts[email] = 0; // Reset attempts for this user
     localStorage.setItem("loginAttempts", JSON.stringify(loginAttempts));
+    localStorage.setItem("loggedInUser", email); // Store logged-in user email in localStorage
     document.cookie = "session=active; max-age=3600; path=/"; // Simulate session cookie
     window.location.href = "../HTML/main-page.html"; // Redirect
 });
