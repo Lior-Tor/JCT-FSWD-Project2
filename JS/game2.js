@@ -94,8 +94,13 @@ function updateScore(word) {
     scoreDisplay.textContent = `Score: ${currentScore}`;
 
     if (currentScore > wordHighScore) {
+        // Update the high score for the current user
         wordHighScore = currentScore;
-        localStorage.setItem('wordGameHighScore', wordHighScore);
+        // Update the high scores object
+        wordHighScores[userEmail] = wordHighScore;
+        // Save the updated high scores object back to localStorage
+        localStorage.setItem('wordHighScores', JSON.stringify(wordHighScores));
+        // Update the display
         highScoreDisplay.textContent = `High Score: ${wordHighScore}`;
     }
 }
@@ -157,6 +162,13 @@ function startTimer() {
 
         if (timeRemaining <= 0) {
             clearInterval(timerInterval);
+            // Update high score one final time when game ends
+            if (currentScore > wordHighScore) {
+                wordHighScore = currentScore;
+                wordHighScores[userEmail] = wordHighScore;
+                localStorage.setItem('wordHighScores', JSON.stringify(wordHighScores));
+                highScoreDisplay.textContent = `High Score: ${wordHighScore}`;
+            }
             alert(`Game Over! Final Score: ${currentScore}`);
             input.disabled = true;
         }
