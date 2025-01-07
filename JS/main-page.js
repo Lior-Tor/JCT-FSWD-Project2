@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const username =localStorage.getItem('loggedInUser');
-    const highScoreGame1 = localStorage.getItem("highScores") || {}; // Replace with dynamic score fetching
+    const userEmail=localStorage.getItem('loggedInUser');
+    const username = userEmail.split('@')[0];
+    // Retrieve high scores for different users
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || {};
+    const highScoreGame1 = highScores[userEmail] || 0;
     const highScoreGame2 = 4500; // Replace with dynamic score fetching
 
     document.getElementById('username').textContent = username;
