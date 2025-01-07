@@ -14,5 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
         alert('Thank you for subscribing!');
+
     });
 });
