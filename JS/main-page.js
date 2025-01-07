@@ -49,22 +49,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const userEmail = localStorage.getItem("loggedInUser") || "Player";
     const username = userEmail.split("@")[0];
     document.getElementById("username").textContent = username;
+    console.log("User email: ", userEmail);
 
     // Dynamically load high scores (mocked for now; replace with real logic)
     const highScoreGame1 = localStorage.getItem("highScoreGame1") || 0;
     const highScoreGame2 = localStorage.getItem("highScoreGame2") || 0;
     document.getElementById("highScoreGame1").textContent = highScoreGame1;
     document.getElementById("highScoreGame2").textContent = highScoreGame2;
+    console.log("High score for Game 1: ", highScoreGame1);
+    console.log("High score for Game 2: ", highScoreGame2);
 
     // Newsletter form submission
     const newsletterForm = document.getElementById("newsletter-form");
     newsletterForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent the default form submission
+        console.log("Newsletter form submission prevented.");
+
+        // Get the email input value
         const emailInput = newsletterForm.querySelector("input").value;
 
+        // Check if an email was entered
         if (emailInput) {
-            alert(`Thank you for subscribing, ${username}!`);
-            newsletterForm.reset();
+            alert(`Thank you for subscribing, ${username}!`); // Show alert
+            newsletterForm.reset(); // Reset the form
+        } else {
+            alert("Please enter a valid email address."); // Optional: Show validation message
         }
     });
 

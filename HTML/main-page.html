@@ -49,13 +49,9 @@
             <section class="hero">
                 <h1>Welcome Back, <span id="username">Player</span>!</h1>
                 <p>Your ultimate gaming adventure starts now.</p>
-                <div class="high-scores">
-                    <p>High Score in Game 1: <span id="highScoreGame1">0</span></p>
-                    <p>High Score in Game 2: <span id="highScoreGame2">0</span></p>
-                </div>
                 <div class="play-buttons">
-                    <a href="../HTML/game1.html" class="play-button">Play Game 1</a>
-                    <a href="../HTML/game2.html" class="play-button">Play Game 2</a>
+                    <a href="../HTML/game1.html" class="play-button" target="_blank">Play Game 1</a>
+                    <a href="../HTML/game2.html" class="play-button" target="_blank">Play Game 2</a>
                 </div>
             </section>
 
@@ -68,15 +64,15 @@
                 <h2>Explore Our Games</h2>
                 <div class="games-grid">
                     <!-- Real Games -->
-                    <div class="game-card" onclick="window.location.href='../HTML/game1.html'">
+                    <div class="game-card" onclick="window.open('../HTML/game1.html', '_blank')">
                         <img src="../images/game1-gameplay.png" alt="Game 1">
                         <h3>Dodging Game</h3>
                         <p>Dodge obstacles in this fast-paced game!</p>
                     </div>
-                    <div class="game-card" onclick="window.location.href='../HTML/game2.html'">
-                        <img src="../images/game1-gameplay.png" alt="Game 2">
-                        <h3>Game 2</h3>
-                        <p>Embark on an action-packed journey!</p>
+                    <div class="game-card" onclick="window.open('../HTML/game2.html', '_blank')">
+                        <img src="../images/game2-gameplay.png" alt="Game 2">
+                        <h3>Word Game</h3>
+                        <p>Find hidden words in this challenging puzzle game!</p>
                     </div>
                     <!-- Placeholder Games -->
                     <div class="game-card">
