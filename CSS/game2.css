@@ -1,0 +1,129 @@
+
+/* Body Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('../images/login-background-banner.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+/* Game Container */
+.game-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: rosybrown;
+    width: 350px;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #6C63FF, #3B82F6) 1;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Back Emoji */
+.back-emoji {
+    position: absolute;
+    left: 0px;
+    font-size: 24px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.back-emoji:hover {
+    transform: scale(1.2);
+    color: #6C63FF;
+}
+
+
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-emoji {
+    text-decoration: none;
+    font-size: 24px;
+}
+
+#letters {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.letter {
+    background: #e0e0e0;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+#submission {
+    margin: 20px 0;
+}
+
+#word {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+#words {
+    list-style: none;
+    padding: 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #666;
+}
+
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
