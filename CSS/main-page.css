@@ -1,155 +1,178 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-image: url('../images/login-background-banner.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
- nav {
-     position: fixed;
-     top: 0;
-     left: 0;
-     width: 100%;
-     background: linear-gradient(45deg, rgba(108, 99, 255, 0.9), rgba(59, 130, 246, 0.9));
-     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-     z-index: 1;
-     display: flex;
-     justify-content: space-between;
-     align-items: stretch;
-     padding: 1em 2em;
-     transition: transform 0.3s ease, opacity 0.3s ease;
- }
 
-nav.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
+body {
+    font-family: 'Arial', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Makes items wrap on smaller screens */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fff;
-    position: sticky;
+
+/* Background video */
+.video-background {
+    position: fixed;
     top: 0;
-    z-index: 10;
-    max-height: 118px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
 }
-nav a {
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+/* Header */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(31, 41, 55, 0.9);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+header .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 1em;
-    margin: 0 1em;
-    transition: color 0.3s ease-in-out;
+    margin: 0 1rem;
+    font-size: 1rem;
+    transition: color 0.3s;
 }
 
-nav a:hover {
-    color: #FFD700;
+header .nav-links a:hover {
+    color: #38bdf8;
 }
 
-nav .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: white;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-@keyframes navSlideIn {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-nav {
-    animation: navSlideIn 0.8s ease-out;
-}
-
-@media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        padding: 1em;
-    }
-
-    nav a {
-        margin: 0.5em 0;
-    }
-}
-
-.landing-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Hero Section */
+.hero {
     text-align: center;
-    color: white;
-    padding-top: 5em; /* Adjusted for nav bar */
+    padding: 8rem 2rem 4rem;
+    animation: fadeIn 2s ease-in;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #38bdf8, #6c63ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.high-scores p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+/* Games Section */
+.games {
+    text-align: center;
+    padding: 4rem 2rem;
 }
 
 .games-container {
     display: flex;
-    justify-content: flex-start; /* Push boxes to one side */
-    gap: 2em;
-    margin: 2em 0;
+    justify-content: center;
+    gap: 2rem;
     flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .game-card {
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid;
-    border-image: linear-gradient(45deg, #6C63FF, #3B82F6) 1;
-    border-radius: 12px;
-    padding: 1.5em;
-    width: 200px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #38bdf8;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    width: 250px;
 }
 
 .game-card:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.5);
 }
 
 .game-card img {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 1em;
+    height: 150px;
+    object-fit: cover;
 }
 
-.achievements {
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid;
-    border-image: linear-gradient(45deg, #6C63FF, #3B82F6) 1;
-    border-radius: 12px;
-    padding: 1em;
-    width: 80%;
-    max-width: 600px;
+.game-card h3 {
+    margin: 1rem 0 0.5rem;
 }
 
-.achievements ul {
-    list-style: none;
-    padding: 0;
+/* Newsletter Section */
+.newsletter {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 4rem 2rem;
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in;
 }
 
-.achievements li {
-    font-size: 0.9em;
-    margin: 0.5em 0;
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.achievements h2 {
-    font-size: 1.5em;
-    margin-bottom: 1em;
+.newsletter input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.newsletter button {
+    background: #38bdf8;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.newsletter button:hover {
+    background: #0284c7;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: rgba(31, 41, 55, 0.9);
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

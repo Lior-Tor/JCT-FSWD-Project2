@@ -3,57 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games4U</title>
+    <title>Games4U - Ultimate Gaming Hub</title>
     <link rel="stylesheet" href="../CSS/main-page.css">
-
 </head>
 <body>
+<div class="video-background">
+    <video autoplay muted loop>
+        <source src="../videos/Sci fi Background Loop.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
 <header>
     <nav>
-        <div>Games4U</div>
-
-            <a href="login.html">Login</a>
+        <div class="logo">Games4U</div>
+        <div class="nav-links">
+            <a href="../login.html">Login</a>
             <a href="signup.html">Sign Up</a>
             <a href="game1.html">Game 1</a>
             <a href="game2.html">Game 2</a>
+        </div>
     </nav>
 </header>
 
 <main>
-    <body>
-    <div class="landing-container">
-        <h1>Welcome to the Game Hub!</h1>
-        <p>Choose your adventure below and explore your achievements.</p>
+    <section class="hero">
+        <h1>Welcome, <span id="username">Player</span>!</h1>
+        <p>Your ultimate gaming adventure begins here.</p>
+        <div class="high-scores">
+            <p>High Score in Game 1: <span id="highScoreGame1">0</span></p>
+            <p>High Score in Game 2: <span id="highScoreGame2">0</span></p>
+        </div>
+    </section>
 
+    <section class="games">
+        <h2>Explore Our Games</h2>
         <div class="games-container">
-            <div class="game-card" onclick="location.href='game1.html'">
-                <img src="../images/game1-thumbnail.jpg" alt="Game 1">
+            <div class="game-card" onclick="window.location.href='game1.html'">
+                <img src="../images/img.png" alt="Game 1">
                 <h3>Game 1</h3>
                 <p>An exciting puzzle adventure awaits!</p>
             </div>
-            <div class="game-card" onclick="location.href='game2.html'">
+            <div class="game-card" onclick="window.location.href='game2.html'">
                 <img src="../images/game2-thumbnail.jpg" alt="Game 2">
                 <h3>Game 2</h3>
                 <p>Embark on an action-packed journey!</p>
             </div>
         </div>
+    </section>
 
-        <div class="achievements">
-            <h2>Your Achievements</h2>
-            <ul>
-                <li>u did level one yay</li>
-                <li>u got 300 points in game 2</li>
-                <li>shkoyech, you learned daf yomi for 39 hours straight</li>
-                <li>Logged in for 7 consecutive days</li>
-            </ul>
-        </div>
-    </div>
-    </body>
-
+    <section class="newsletter">
+        <h2>Stay in the Loop</h2>
+        <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+        <form id="newsletter-form">
+            <label>
+                <input type="email" placeholder="Enter your email" required>
+            </label>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
 </main>
 
 <footer>
-    <p>&copy; 2024 Games4U</p>
+    <p>&copy; 2025 Games4U. All Rights Reserved.</p>
 </footer>
+<script src="../JS/main-page.js"></script>
 </body>
 </html>
