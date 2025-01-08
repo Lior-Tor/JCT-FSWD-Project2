@@ -2,32 +2,60 @@
 if (document.cookie.includes("session=active")) {
     console.log("User is logged in");
 } else {
-    window.location.href = "../../login.html"; // Redirect to login
+    window.location.href = "../../login.html";
 }
 
 // Game variables
 let gameRunning = false;
 let score = 0;
-let gameSpeed = 5; // Initial obstacle speed
-let spawnInterval = 1000; // Initial spawn time
+let gameSpeed = 5;
+let spawnInterval = 1000;
 
+// Elements
 const gameArea = document.getElementById("gameArea");
 const player = document.getElementById("player");
 const scoreDisplay = document.getElementById("score");
 const highScoreDisplay = document.getElementById("highScore");
+const highestScoreInfo = document.getElementById("highestScoreInfo");
 const startButton = document.getElementById("startButton");
 const backButton = document.getElementById("backButton");
 
 let obstacleInterval;
 let difficultyIncrease;
-let userEmail = localStorage.getItem("loggedInUser");
+const userEmail = localStorage.getItem("loggedInUser");
+console.log("Logged in user: ", userEmail);
 
-// Retrieve high scores for different users
-let highScores = JSON.parse(localStorage.getItem("highScores")) || {};
+// Retrieve users from localStorage
+const users = JSON.parse(localStorage.getItem("users")) || [];
+const currentUser = users.find(u => u.email === userEmail);
 
-// Assign high score to the current user or set to 0 if none exists
-let highScore = highScores[userEmail] || 0;
+// Initialize high score for Game 1 if not already present
+if (!currentUser.highScores) {
+    currentUser.highScores = { game1: 0, game2: 0 };
+    localStorage.setItem("users", JSON.stringify(users));
+}
+
+// Set the initial high score for Game 1
+let highScore = currentUser.highScores.game1 || 0;
 highScoreDisplay.textContent = `High Score: ${highScore}`;
+
+// Find the highest score across all users for Game 1
+function findHighestScore(users) {
+    let highestScore = 0;
+    let highestScorer = "No One";
+
+    users.forEach(user => {
+        if (user.highScores && user.highScores.game1 > highestScore) {
+            highestScore = user.highScores.game1;
+            highestScorer = user.name || "Anonymous";
+        }
+    });
+
+    return { highestScore, highestScorer };
+}
+
+const { highestScore, highestScorer } = findHighestScore(users);
+highestScoreInfo.textContent = `The highest score is: ${highestScore} from ${highestScorer}`;
 
 // Load Sounds
 const collisionSound = new Audio("../../sounds/collision-sound.mp3");
@@ -41,10 +69,10 @@ document.addEventListener("keydown", (event) => {
 
     let left = parseInt(getComputedStyle(player).left);
 
-    if (event.key === "ArrowLeft" && left > 10) {
+    if (event.key === "ArrowLeft" && left > 30) {
         player.style.left = left - 20 + "px";
     }
-    if (event.key === "ArrowRight" && left < gameArea.clientWidth - 40) {
+    if (event.key === "ArrowRight" && left < gameArea.clientWidth - 30) {
         player.style.left = left + 20 + "px";
     }
 });
@@ -53,7 +81,6 @@ document.addEventListener("keydown", (event) => {
 function createObstacle() {
     if (!gameRunning) return;
 
-    // Play the obstacle creation sound
     obstacleCreationSound.play();
 
     const obstacle = document.createElement("div");
@@ -79,17 +106,16 @@ function createObstacle() {
             playerRect.top < obstacleRect.bottom - 5;
 
         if (isColliding) {
-            collisionSound.play(); // Play collision sound
+            collisionSound.play();
             clearInterval(obstacleFall);
             gameOver();
         }
 
         if (top > gameArea.clientHeight - 20) {
-            // Increment score only when the obstacle disappears
             score++;
             scoreDisplay.textContent = `Score: ${score}`;
             obstacle.remove();
-            clearInterval(obstacleFall); // Stop obstacle fall
+            clearInterval(obstacleFall);
         } else {
             obstacle.style.top = top + gameSpeed + "px";
         }
@@ -102,20 +128,19 @@ function startGame() {
 
     gameRunning = true;
     score = 0;
-    gameSpeed = 5; // Reset speed
-    spawnInterval = 1000; // Reset spawn interval
+    gameSpeed = 5;
+    spawnInterval = 1000;
 
     scoreDisplay.textContent = `Score: ${score}`;
     highScoreDisplay.textContent = `High Score: ${highScore}`;
 
-    // Hide start button
     startButton.style.display = "none";
 
-    // Gradually increase difficulty, but obstacles still come frequently
+    // Gradually increase speed and reduce spawn interval
     difficultyIncrease = setInterval(() => {
-        gameSpeed += 2; // Increase obstacle speed
-        spawnInterval = Math.max(600, spawnInterval - 80); // Reduce spawn interval slightly
-    }, 3000); // Every 3 seconds
+        gameSpeed += 2;
+        spawnInterval = Math.max(600, spawnInterval - 80);
+    }, 3000);
 
     // Start spawning obstacles
     obstacleInterval = setInterval(() => {
@@ -129,51 +154,42 @@ function startGame() {
 
 // Game over function
 function gameOver() {
-    gameRunning = false; // Mark the game as not running
-    clearInterval(obstacleInterval); // Stop spawning new obstacles
-    clearInterval(difficultyIncrease); // Stop increasing difficulty
+    gameRunning = false;
+    clearInterval(obstacleInterval);
+    clearInterval(difficultyIncrease);
 
-    // Check if the player achieved a new high score
     if (score > highScore) {
-        highScore = score; // Update the high score
-        highScores[userEmail] = highScore; // Save the high score for the current user
-        localStorage.setItem("highScores", JSON.stringify(highScores)); // Store the updated high scores in localStorage
-        newHighScoreSound.play(); // Play the new high score sound
+        highScore = score;
+        currentUser.highScores.game1 = highScore;
+        localStorage.setItem("users", JSON.stringify(users));
+        newHighScoreSound.play();
 
-        // Wait a short moment before displaying the alert
         setTimeout(() => {
             alert(`Game Over! New High Score: ${score}`);
-            cleanupAfterGameOver(); // Cleanup obstacles and show Retry button
-        }, 500); // Wait 500ms for the sound to play before showing the alert
-    } else {
-        gameOverSound.play(); // Play the game over sound
+            cleanupAfterGameOver();
+        }, 500);
 
-        // Wait a short moment before displaying the alert
+        // Update the highest score information
+        const { highestScore, highestScorer } = findHighestScore(users);
+        highestScoreInfo.textContent = `The highest score is: ${highestScore} from ${highestScorer}`;
+    } else {
+        gameOverSound.play();
+
         setTimeout(() => {
             alert(`Game Over! Your Score: ${score}`);
-            cleanupAfterGameOver(); // Cleanup obstacles and show Retry button
-        }, 500); // Wait 500ms for the sound to play before showing the alert
+            cleanupAfterGameOver();
+        }, 500);
     }
 }
 
 // Function to clean up obstacles and show the Retry button
 function cleanupAfterGameOver() {
-    // Remove all existing obstacles
     document.querySelectorAll(".obstacle").forEach(obstacle => obstacle.remove());
-
-    // Show Retry button (centered)
     startButton.textContent = "Retry";
     startButton.style.display = "block";
     startButton.style.margin = "10px auto";
 }
 
-// Function to display the Retry button
-function showRetryButton() {
-    startButton.textContent = "Retry";
-    startButton.style.display = "block";
-    startButton.style.margin = "10px auto";
-}
-    
 // Event listener for Start/Retry button
 startButton.addEventListener("click", startGame);
 
