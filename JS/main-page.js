@@ -102,7 +102,7 @@ newsletterForm.addEventListener("submit", (e) => {
 
     // Check if an email was entered
     if (emailInput) {
-        alert(`Thank you for subscribing, ${username}!`);
+        alert(`Thank you for subscribing !`);
         newsletterForm.reset();
     }
 });
