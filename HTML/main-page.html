@@ -1,73 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games4U - Ultimate Gaming Hub</title>
-    <link rel="stylesheet" href="../CSS/main-page.css">
-</head>
-<body>
-<div class="video-background">
-    <video autoplay muted loop>
-        <source src="../videos/Sci fi Background Loop.mp4" type="video/mp4">
-         Your browser does not support the video tag.
-    </video>
-</div>
 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Games4U - Ultimate Gaming Hub</title>
+        <link rel="stylesheet" href="../CSS/main-page.css">
+        <link rel="icon" href="../images/favicon.png" type="image/png">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    </head>
 
-<header>
-    <nav>
-        <div class="logo">Games4U</div>
-        <div class="nav-links">
-            <a href="../login.html">Login</a>
-            <a href="signup.html">Sign Up</a>
-            <a href="game1.html">Game 1</a>
-            <a href="game2.html">Game 2</a>
-        </div>
-    </nav>
-</header>
-
-<main>
-    <section class="hero">
-        <h1>Welcome, <span id="username">Player</span>!</h1>
-        <p>Your ultimate gaming adventure begins here.</p>
-        <div class="high-scores">
-            <p>High Score in Game 1: <span id="highScoreGame1">0</span></p>
-            <p>High Score in Game 2: <span id="highScoreGame2">0</span></p>
-        </div>
-    </section>
-
-    <section class="games">
-        <h2>Explore Our Games</h2>
-        <div class="games-container">
-            <div class="game-card" onclick="window.location.href='game1.html'">
-                <img src="../images/img.png" alt="Game 1">
-                <h3>Game 1</h3>
-                <p>Dodge Ball!</p>
-            </div>
-            <div class="game-card" onclick="window.location.href='game2.html'">
-                <img src="../images/img_1.png" height="693" width="502" alt="Game 2"/>
-                <h3>Game 2</h3>
-                <p>Weirdle!</p>
+    <body>
+        <!-- Intro Video Section -->
+        <div class="intro-video-container" id="introVideoContainer">
+            <video autoplay muted playsinline id="introVideo">
+                <source src="../videos/intro-video.mov" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="intro-overlay">
+                <h1>Welcome to Games4U</h1>
             </div>
         </div>
-    </section>
 
-    <section class="newsletter">
-        <h2>Stay in the Loop</h2>
-        <p>Subscribe to our newsletter for the latest updates and exclusive offers.</p>
-        <form id="newsletter-form">
-            <label>
-                <input type="email" placeholder="Enter your email" required>
-            </label>
-            <button type="submit">Subscribe</button>
-        </form>
-    </section>
-</main>
+        <!-- Main Website Content -->
+        <div id="mainContent" style="display: none;">
+            <div class="video-background">
+                <video autoplay muted loop>
+                    <source src="../videos/main-page-background-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
 
-<footer>
-    <p>&copy; 2025 Games4U. All Rights Reserved.</p>
-</footer>
-<script src="../JS/main-page.js"></script>
-</body>
+            <header>
+                <nav>
+                    <div class="logo-container">
+                        <a href="main-page.html"><img src="../images/logo-without-background.png" alt="Games4U Logo" class="logo"></a>
+                    </div>
+                    <div class="tagline">
+                        <h2>Games4U - Your Ultimate Gaming Destination</h2>
+                    </div>
+                    <div class="logout">
+                        <a href="../login.html" class="logout-button">Logout</a>
+                    </div>
+                </nav>
+            </header>
+
+            <main>
+                <section class="hero">
+                    <h1>Welcome Back, <span id="username">Player</span>!</h1>
+                    <p>Your ultimate gaming adventure starts now.</p>
+                    <p id="lastLogin" class="last-login">Last Login: </p>
+                    <div class="play-buttons">
+                        <a href="../HTML/game1.html" class="play-button" target="_blank">Play Game 1</a>
+                        <a href="../HTML/game2.html" class="play-button" target="_blank">Play Game 2</a>
+                    </div>
+                </section>
+
+                <section class="about">
+                    <h2>About Games4U</h2>
+                    <p>At Games4U, we are passionate about creating the best gaming experience for our community. Our mission is to provide engaging, entertaining, and unforgettable gaming experiences for everyone. Whether you're a seasoned gamer or just starting, Games4U is the perfect destination for your gaming journey.</p>
+                </section>
+
+                <section class="games">
+                    <h2>Explore Our Games</h2>
+                    <div class="games-grid">
+                        <!-- Real Games -->
+                        <div class="game-card" onclick="window.open('../HTML/game1.html', '_blank')">
+                            <img src="../images/game1-gameplay.png" alt="Game 1">
+                            <h3>Dodging Game</h3>
+                            <p>Dodge obstacles in this fast-paced game!</p>
+                        </div>
+                        <div class="game-card" onclick="window.open('../HTML/game2.html', '_blank')">
+                            <img src="../images/game2-gameplay.png" alt="Game 2">
+                            <h3>Word Game</h3>
+                            <p>Find hidden words in this challenging puzzle game!</p>
+                        </div>
+                        <!-- Placeholder Games -->
+                        <div class="game-card">
+                            <img src="../images/coming-soon.webp" alt="Still in Development">
+                            <h3>Game 3</h3>
+                            <p>Still in development. Stay tuned!</p>
+                        </div>
+                        <div class="game-card">
+                            <img src="../images/coming-soon.webp" alt="Still in Development">
+                            <h3>Game 4</h3>
+                            <p>Still in development. Stay tuned!</p>
+                        </div>
+                        <div class="game-card">
+                            <img src="../images/coming-soon.webp" alt="Still in Development">
+                            <h3>Game 5</h3>
+                            <p>Still in development. Stay tuned!</p>
+                        </div>
+                        <div class="game-card">
+                            <img src="../images/coming-soon.webp" alt="Still in Development">
+                            <h3>Game 6</h3>
+                            <p>Still in development. Stay tuned!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="newsletter">
+                    <div class="newsletter-container">
+                        <h2>📩 Stay in the Loop</h2>
+                        <p>Subscribe to our newsletter for the latest updates and exclusive offers!</p>
+                        <form id="newsletter-form">
+                            <label>
+                                <input type="email" placeholder="Enter your email" required>
+                            </label>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </section>
+
+                <section class="reviews">
+                    <h2>What Our Players Say</h2>
+                    <div class="reviews-grid">
+                        <div class="review-card">
+                            <p>"Games4U is the best gaming hub out there! The games are so engaging."</p>
+                            <span>- Alex G.</span>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <div class="review-card">
+                            <p>"I love the innovative designs and smooth gameplay. Keep it up, Games4U!"</p>
+                            <span>- Emily R.</span>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        <div class="review-card">
+                            <p>"Joining Games4U has been the highlight of my gaming journey. Highly recommended!"</p>
+                            <span>- Daniel K.</span>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <p>&copy; <span id="currentYear"></span> Games4U. All Rights Reserved.</p>
+            </footer>
+        </div>
+
+        <script src="../JS/main-page.js"></script>
+    </body>
+
 </html>

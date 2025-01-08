@@ -1,5 +1,6 @@
 // Retrieve existing users from localStorage
 const newUsers = JSON.parse(localStorage.getItem("users")) || [];
+console.log("Registered users: ", newUsers);
 
 // Delete all the users from localStorage
 //localStorage.removeItem("users");
@@ -18,21 +19,21 @@ const togglePassword = document.getElementById("togglePassword");
 // Toggle Show/Hide Password
 togglePassword.addEventListener("click", () => {
     const type = passwordInput.type === "password" ? "text" : "password";
-    passwordInput.type = type;
-    confirmPasswordInput.type = type;
-    togglePassword.textContent = type === "password" ? "👁️" : "👨‍🦯";
+    passwordInput.type = type; // Password or Text
+    confirmPasswordInput.type = type; // Password or Text
+    togglePassword.textContent = type === "password" ? "👁️" : "🫣";
 });
 
 // Event Listener for Signup
 signupForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission behavior (page refresh)
 
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const confirmPassword = confirmPasswordInput.value.trim();
-    const birthdate = new Date(birthdateInput.value); // Parse birthdate
-    const today = new Date(); // Get today's date
+    const birthdate = new Date(birthdateInput.value);
+    const today = new Date(); // Get today's date for age calculation
 
     // Calculate age
     const age = today.getFullYear() - birthdate.getFullYear();
@@ -84,12 +85,13 @@ signupForm.addEventListener("submit", function (e) {
     const newUser = { name, email, password, birthdate };
     newUsers.push(newUser);
     localStorage.setItem("users", JSON.stringify(newUsers));
+    console.log("New user registered: ", newUser);
 
     // Display success message
     successMessage.style.display = "block";
     successMessage.textContent = "Account created successfully! Redirecting to login...";
 
-    // Redirect to login page after 2 seconds
+    // Redirect to login page after 3 seconds
     setTimeout(() => {
         window.location.href = "../login.html";
     }, 3000);

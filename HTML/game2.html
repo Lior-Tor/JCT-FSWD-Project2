@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Game - Games4U</title>
-    <link rel="stylesheet" href="../CSS/game2.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-<div class="game-container">
-    <div class="header">
-        <a href="../HTML/main-page.html" id="backButton" class="back-emoji">🔙</a>
-        <h1>Word Game</h1>
-    </div>
-    <div class="timer"><span id="timer">Time left: 60s</span></div>
-    <p id="score">Score: 0</p>
-    <p id="highScore">High Score: 0</p>
-    <p id="message">In this game you are given 5 random letters to make as many words as you can.</p>
-    <ul id="letters"></ul>
 
-    <button id="startButton">Start Game</button>
-    <form id="submission">
-        <label>
-            <input id="word" type="text" placeholder="Enter your word" required>
-        </label>
-        <button id="submit" type="button">Submit</button>
-    </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Game - Games4U</title>
+        <link rel="stylesheet" href="../CSS/game2.css">
+        <link rel="icon" href="../images/favicon.png" type="image/png">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <div class="game-container">
+            <div class="header">
+                <a href="../HTML/main-page.html" id="backButton" class="back-emoji">🔙</a>
+                <h1>Word Game</h1>
+            </div>
+            <div class="timer"><span id="timer">Time left: 60s</span></div>
+            <p id="score">Score: 0</p>
+            <p id="highScore">High Score: 0</p>
+            <p id="message">In this game you are given 5 random letters to make as many words as you can.</p>
+            <ul id="letters"></ul>
 
-    <ul id="words">
-        <li>Your Words:</li>
-    </ul>
-</div>
+            <button id="startButton">Start Game</button>
+            <form id="submission">
+                <label>
+                    <input id="word" type="text" placeholder="Enter your word" required>
+                </label>
+                <button id="submit" type="button">Submit</button>
+            </form>
 
-<footer>
-    <p>© 2025 Games4U. All rights reserved.</p>
-</footer>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <ul id="words">
+                <li>Your Words:</li>
+            </ul>
+        </div>
 
-<script src="../JS/game2.js" type="module"></script>
-</body>
+        <footer>
+            <p>© 2025 Games4U. All rights reserved.</p>
+        </footer>
+        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../JS/game2.js" type="module"></script>
+    </body>
+
 </html>

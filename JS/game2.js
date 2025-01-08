@@ -1,3 +1,10 @@
+// Check if the user is logged in
+if (document.cookie.includes("session=active")) {
+    console.log("User is logged in");
+} else {
+    window.location.href = "../../login.html";
+}
+
 // Add jQuery to HTML file
 const input = document.getElementById("word");
 const list = document.getElementById("words");
