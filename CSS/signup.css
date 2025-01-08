@@ -90,7 +90,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="dat
 input:focus {
     outline: none;
     border-color: #6C63FF;
-    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+    box-shadow: 0 0 20px rgba(108, 99, 255, 0.5);
 }
 
 label {
@@ -117,10 +117,6 @@ label[for="email"], label[for="password"], label[for="confirmPassword"], label[f
     cursor: pointer;
     color: #6C63FF;
     font-size: 1.3em;
-}
-
-.toggle-password:hover {
-    color: #4A42CC;
 }
 
 /* Checkbox Container */

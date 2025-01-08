@@ -21,7 +21,7 @@ body {
 
 /* Terms Container */
 .terms-container {
-    position: relative; /* For positioning the back button inside */
+    position: relative; /* For positioning the back button inside the container */
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 12px;
     padding: 2em;
@@ -48,7 +48,7 @@ body {
 
 /* Back Button */
 .back-button {
-    position: absolute; /* Position it inside the terms container */
+    position: absolute; /* Position the back button inside the terms container */
     top: 10px;
     left: 10px;
 }
@@ -70,14 +70,14 @@ body {
 
 /* Back Icon */
 .back-icon {
-    font-size: 1.2em; /* Larger arrow icon */
-    margin-right: 5px; /* Spacing between the icon and text */
+    font-size: 1.2em;
+    margin-right: 5px;
     color: #6C63FF;
     transition: transform 0.3s ease-in-out;
 }
 
 .back-button a:hover .back-icon {
-    transform: translateX(-3px); /* Move the arrow slightly on hover */
+    transform: translateX(-3px);
 }
 
 /* Header */
@@ -117,7 +117,7 @@ header p {
 .terms-content {
     text-align: left;
     line-height: 1.6;
-    margin-top: 20px; /* Space below header */
+    margin-top: 20px;
 }
 
 .terms-content h2 {

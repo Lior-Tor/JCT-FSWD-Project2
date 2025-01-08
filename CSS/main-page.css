@@ -175,6 +175,14 @@ header nav {
     margin-bottom: 2rem;
 }
 
+.last-login {
+    font-size: 1rem;
+    margin: 1rem 0;
+    color: #f1f1f1;
+    font-style: italic;
+    opacity: 0.8;
+}
+
 .hero .play-buttons {
     display: flex;
     justify-content: center;

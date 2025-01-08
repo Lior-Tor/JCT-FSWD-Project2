@@ -1,3 +1,10 @@
+// Check if the user is logged in
+if (document.cookie.includes("session=active")) {
+    console.log("User is logged in");
+} else {
+    window.location.href = "../../login.html"; // Redirect to login
+}
+
 // Game variables
 let gameRunning = false;
 let score = 0;

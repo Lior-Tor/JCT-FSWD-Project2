@@ -1,3 +1,18 @@
+// Check if the user is logged in
+if (document.cookie.includes("session=active")) {
+    console.log("User is logged in");
+} else {
+    window.location.href = "../../login.html"; // Redirect to login
+}
+
+// If the logout button is clicked, invalidate the session cookie
+const logoutButton = document.querySelector(".logout-button");
+if (logoutButton) {
+    logoutButton.addEventListener("click", () => {
+        document.cookie = "session=active; max-age=0; path=/"; // Invalidate the session cookie
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     // Elements for the intro video
     const introVideoContainer = document.getElementById("introVideoContainer");
@@ -41,6 +56,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000); // Wait for fade-out animation
     });
 
+    const email = localStorage.getItem("loggedInUser");
+    const users = JSON.parse(localStorage.getItem("users"));
+    const user = users.find(u => u.email === email);
+
+    if (user) {
+        console.log(`Welcome back! Last login: ${user.lastLogin}`);
+        document.getElementById("lastLogin").textContent = `Last Login: ${user.lastLogin}`;
+    }
+
+    if (user) {
+        // Get the high scores for the logged-in user
+        const highScoreGame1 = user.highScores?.game1 || 0; // Default to 0 if undefined
+        const highScoreGame2 = user.highScores?.game2 || 0; // Default to 0 if undefined
+
+        // Log the high scores to the console
+        console.log(`High Score for Game 1: ${highScoreGame1}`);
+        console.log(`High Score for Game 2: ${highScoreGame2}`);
+    } else {
+        console.log("No user is currently logged in.");
+    }
+
     // Dynamically set the current year in the footer
     const currentYear = new Date().getFullYear();
     document.getElementById("currentYear").textContent = currentYear;
@@ -51,18 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("username").textContent = username;
     console.log("User email: ", userEmail);
 
-    // Dynamically load high scores (mocked for now; replace with real logic)
-    const highScoreGame1 = localStorage.getItem("highScoreGame1") || 0;
-    const highScoreGame2 = localStorage.getItem("highScoreGame2") || 0;
-    document.getElementById("highScoreGame1").textContent = highScoreGame1;
-    document.getElementById("highScoreGame2").textContent = highScoreGame2;
-    console.log("High score for Game 1: ", highScoreGame1);
-    console.log("High score for Game 2: ", highScoreGame2);
-
     // Newsletter form submission
     const newsletterForm = document.getElementById("newsletter-form");
     newsletterForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Prevent the default form submission
+        e.preventDefault(); // Prevent the default form submission behavior (page refresh)
         console.log("Newsletter form submission prevented.");
 
         // Get the email input value
