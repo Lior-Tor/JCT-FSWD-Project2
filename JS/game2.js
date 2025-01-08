@@ -2,7 +2,7 @@
 if (document.cookie.includes("session=active")) {
     console.log("User is logged in");
 } else {
-    window.location.href = "../../login.html"; // Redirect to login
+    window.location.href = "../../login.html";
 }
 
 // Add jQuery to HTML file
