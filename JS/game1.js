@@ -195,5 +195,5 @@ startButton.addEventListener("click", startGame);
 
 // Event listener for Back button to navigate to main page
 backButton.addEventListener("click", () => {
-    window.location.href = "../HTML/main-page.html";
+    window.location.href = "HTML/main-page.html";
 });

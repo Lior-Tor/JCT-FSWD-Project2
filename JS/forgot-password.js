@@ -21,7 +21,7 @@ recoveryForm.addEventListener("submit", function (e) {
     if (!user) {
         recoveryMessage.style.display = "block";
         recoveryMessage.style.color = "red";
-        recoveryMessage.innerHTML = `No account found with this email. <a href='../HTML/signup.html' style="color: #6C63FF; text-decoration: none; font-weight: bold;">Sign up here</a>.`;
+        recoveryMessage.innerHTML = `No account found with this email. <a href='HTML/signup.html' style="color: #6C63FF; text-decoration: none; font-weight: bold;">Sign up here</a>.`;
         console.log("Email not found: ", email);
         return;
     }
